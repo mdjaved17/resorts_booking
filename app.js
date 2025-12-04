@@ -9,7 +9,7 @@ const localStrategy= require("passport-local");
 const User= require("./models/user.js");
 const session= require("express-session");
 const flash= require("connect-flash"); 
-
+const listingController = require("./controllers/listings")
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter= require("./routes/user.js");
@@ -49,9 +49,7 @@ const sessionOptions={
   }
 };
 
-app.get("/", (req, res) => {
-  res.send("Port is working");
-});
+app.get("/", listingController.index);
 
 app.use(session(sessionOptions));
 
