@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <body>
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+          <!-- Logo + Brand -->
+          <a class="navbar-brand d-flex align-items-center" href="/listings">
+            <img
+              src="/images/logo.png"
+              alt="Logo"
+              width="45"
+              height="45"
+              class="me-2 rounded-circle border border-2 border-primary"
+            />
+            <span class="fw-bold text-primary fs-4">Resorts</span>
+          </a>
+          <p class="fw-bold text-dark fs-4" style="text-align:center;">
+            Welcome to Chahat's booking
+          </p>
+          <!-- Right: Buttons -->
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-section d-flex justify-content-center align-items-center">
+      <div class="signup">
+        <h2 class="text-center mb-4">Signup</h2>
+        <form action="/signup" method="post" class="needs-validation">
+          <div class="input-group mb-3">
+            <label for="username" class="form-label fw-semibold">Username</label>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fa-solid fa-user"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="Enter Username"
+                name="username"
+                class="form-control"
+                id="username"
+                required
+              />
+              <div class="invalid-feedback">Title should be valid</div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <label for="email" class="form-label fw-semibold">Email</label>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <input
+                type="email"
+                placeholder="johndoe@123gmail.com"
+                name="email"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <label for="password" class="form-label fw-semibold"
+              >Create Password</label
+            >
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <input
+                type="password"
+                placeholder="........."
+                name="password"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- <div class="input-group mb-3">
+            <label for="price" class="form-label fw-semibold"
+              >Re-type Password</label
+            >
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <input
+                type="password"
+                placeholder="........."
+                name="retype_password"
+                class="form-control"
+                required
+              />
+            </div>
+          </div> -->
+          <button class="btn btn-success w-100">SignUp</button>
+          <p class="pt-3" style="text-align: center; text-decoration:none">
+            Already have an Account? <a href="/login">Login</a>
+          </p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

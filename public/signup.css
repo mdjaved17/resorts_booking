@@ -1,0 +1,31 @@
+header {
+  background-color: rgb(239, 131, 185);
+  color: white;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+/* Reset body */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Main Section (below header) */
+.main-section {
+  min-height: 100vh;         /* Full viewport height */
+  padding-top: 100px;        /* Space below fixed header */
+  background-color: #eef2f7; /* Light background */
+}
+
+/* Signup Box */
+.signup {
+  border: 2px solid black;
+  
+  width: 485px;
+  border-radius: 10px;
+  background-color: #fffffffb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
