@@ -65,9 +65,9 @@ const sessionOptions={
 };
 
 
-// app.get("/", (req, res) => {
-//   res.send("Port is working");
-// });
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 app.use(session(sessionOptions));
 
