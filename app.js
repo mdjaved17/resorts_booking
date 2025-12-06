@@ -8,8 +8,9 @@ const passport= require("passport");
 const localStrategy= require("passport-local");
 const User= require("./models/user.js");
 const session= require("express-session");
+const MongoStore= require('connect-mongo')
 const flash= require("connect-flash"); 
-const listingController = require("./controllers/listings")
+
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter= require("./routes/user.js");
@@ -20,6 +21,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
+
+const dbURL= process.env.ATLASDB_URL;
 
 const mongoose = require("mongoose");
 main()
@@ -33,12 +36,24 @@ main()
 const ExpressError = require("./utils/ExpressError.js");
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/resort");
+  await mongoose.connect(dbURL);
 }
 
+const store = MongoStore.create({
+  mongoUrl: dbURL,
+  touchAfter: 24 * 3600
+});
 
+
+
+
+store.on("error", ()=>{
+  console.log("Error in Mongo session store", err);
+  
+})
 
 const sessionOptions={
+  store,
   secret: "mysupersecretstring",
   resave: false,
   saveUninitialized: true,
@@ -49,7 +64,10 @@ const sessionOptions={
   }
 };
 
-app.get("/", listingController.index);
+
+// app.get("/", (req, res) => {
+//   res.send("Port is working");
+// });
 
 app.use(session(sessionOptions));
 
